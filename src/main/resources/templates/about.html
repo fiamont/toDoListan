@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>ToDoListan - Om</title>
+</head>
+<body class="defaultBackground">
+
+<div layout:fragment="content">
+    <div class="omtop">
+        <h1 class="d-flex justify-content-center display-1" id="omrubrik">Om ToDoListan</h1>
+        <p class="p-2 flex-fill">ToDoListan skapades för att kunna underlätta i vardagen. Har du mycket att göra? Många bollar i
+            luften samtidigt? Här kan du enkelt hålla koll på allt du har att göra genom att skapa en to-do-lista! I
+            listan kan du enkelt lägga till, ta bort och ändra på dina punkter.<br> ToDoLista skapades av Sofia Montgomery som
+            alltid själv älskat detta med listor.</p>
+    </div>
+    <div class="d-flex justify-content-center">
+        <img th:src="@{/static/pergament.png}" alt="404 image not found" class="ombild">
+    </div>
+    <h4 class="p-2 flex-fill display-6 d-flex justify-content-center" id="startalista">Starta lista nu!</h4>
+</div>
+
+</body>
+</html>

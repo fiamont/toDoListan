@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>ToDoListan - Hem</title>
+</head>
+<body class="defaultBackground">
+
+    <div layout:fragment="content">
+        <div class="hemtop">
+            <h1 class="d-flex justify-content-center display-1" id="hemrubrik">Välkommen </h1>
+            <h3 class="text-center display-6 p-2" id="hemunderrubrik">Vill du ha bättre och snyggare koll på vad du har att göra? Då är ToDoListan perfekt för dig!</h3>
+        </div>
+        <p class="text-center p-2 flex-fill">Här kan du enkelt lägga till, ta bort och ändra på dina punkter i din lista och du kan markera om något är färdigt utan att ta bort det.</p>
+        <br>
+        <div class="d-flex justify-content-center">
+            <div>
+                <h4 class="p-2 flex-fill">Starta lista nu!</h4>
+                <p class="p-2">Vill du registrera ny användare? Klicka här:</p>
+                <a th:href="@{/register}" class="btn btn-success text-light m-2">Registrera!</a>
+            </div>
+            <div>
+                <img th:src="@{/static/pennapapper.png}" alt="404 image not found" id="hembild">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
