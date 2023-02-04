@@ -28,12 +28,15 @@ public class AppSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
-                .authorizeHttpRequests()
-                .requestMatchers("/", "/error", "/login", "/static/**", "/about", "/register").permitAll()
-                .requestMatchers("/admin").hasRole("ADMIN")
-                .anyRequest()
-                .authenticated()
-                .and()
+                .authorizeHttpRequests( requests -> {
+                        requests
+                                .requestMatchers("/", "/error", "/static/**", "/about","/register").permitAll()
+                                .requestMatchers("/admin").hasRole("ADMIN")
+                                .anyRequest()
+                                .authenticated();
+                        }
+
+                )
                 .formLogin()
                 .and()
                 .authenticationProvider(authenticationOverride());

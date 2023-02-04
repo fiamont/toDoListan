@@ -2,6 +2,8 @@ package se.sofiamontgomery.todolistan.user;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,7 +21,11 @@ public class UserModel implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userid;
+    @NotEmpty
+    @Size(max = 20)
     private String username;
+    @NotEmpty
+    @Size(min = 6, max = 20)
     private String password;
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<SimpleGrantedAuthority> authorities;

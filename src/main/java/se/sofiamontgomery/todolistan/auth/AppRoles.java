@@ -14,7 +14,7 @@ import static se.sofiamontgomery.todolistan.auth.AppPermissions.*;
 public enum AppRoles {
 
     ADMIN(Set.of(ADMIN_CAN_READ,ADMIN_CAN_DELETE)),
-    CLIENT(Set.of(USER_CAN_CREATE,USER_CAN_READ,USER_CAN_UPDATE,USER_CAN_DELETE));
+    USER(Set.of(USER_CAN_CREATE,USER_CAN_READ,USER_CAN_UPDATE,USER_CAN_DELETE));
 
     private final Set<AppPermissions> appPermissionsList;
 

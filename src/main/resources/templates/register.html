@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout">
 <head>
     <title>ToDoListan - Registrera</title>
 </head>
 <body>
-
-<div layout:fragment="content">
-    <div class="d-flex justify-content-center">
-        <!-- <form th:action="@{/register}" th:object="${userModel}" method="post"> -->
-        <form style="width: 300px">
-            <div class="mb-3 mt-3">
-                <label for="username" class="form-label">Användarnamn:</label>
-                <!-- <input th:field="*{username}" type="text" class="form-control" id="username" placeholder="Skriv användarnamn" name="username"> -->
-                <input type="text" class="form-control" id="username" placeholder="Skriv användarnamn" name="username">
-            </div>
-            <div class="mb-3">
-                <label for="pwd" class="form-label">Lösenord:</label>
-                <!-- <input th:field="*{password}" type="password" class="form-control" id="pwd" placeholder="Fyll i lösenord" name="pswd"> -->
-                <input type="password" class="form-control" id="pwd" placeholder="Fyll i lösenord" name="pswd">
-            </div>
-            <div class="mb-3">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Vem är du?</option>
-                    <option value="user">Användare</option>
-                    <option value="admin">Admin</option>
-                </select>
-            </div>
-            <div class="form-check mb-3">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="robot"> Jag är ingen robot
-                </label>
-            </div>
-            <p>
-                <button type="submit" class="btn btn-primary">Registrera</button>
-            </p>
-        </form>
-
-</div>
-
+    <div layout:fragment="content">
+        <div class="d-flex justify-content-center">
+            <form th:action="@{/register}" th:object="${userModel}" method="POST" style="width: 300px">
+                <div class="mb-3 mt-3">
+                    <label class="form-label">Användarnamn:</label>
+                    <input type="text" class="form-control" th:field="*{username}" name="username" placeholder="Skriv användarnamn">
+                </div>
+                <div class="mb-3">
+                    <label for="pwd" class="form-label">Lösenord (mellan 8 och 20 tecken):</label>
+                    <input type="password" th:field="*{password}" name="password" class="form-control" id="pwd" placeholder="Fyll i lösenord">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Vem är du?</label>
+                    <select th:field="*{authorities}" class="form-select" aria-label="authorities">
+                        <option value="User" th:text="Användare"></option>
+                        <option value="Admin" th:text="Admin"></option>
+                    </select>
+                </div>
+                <div class="form-check mb-3">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="robot"> Jag är ingen robot
+                    </label>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Registrera</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
