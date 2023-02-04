@@ -6,6 +6,10 @@
     width: 230px;
 }
 
+#userhembild {
+    width: 60px;
+}
+
 .hemtop {
     background-image: url("pencils.png");
     background-repeat: no-repeat;
@@ -29,6 +33,11 @@
     margin-top: 2rem;
 }
 
-#startalista {
+#startalista, .userrubrik {
     font-family: 'Shadows Into Light', cursive;
+}
+
+.btn-square-sm {
+    width: 20px;
+    height: 20px;
 }

@@ -8,9 +8,14 @@
 <body>
 
 <div layout:fragment="content">
-    <p>
-        Skriv nånting här
-    </p>
+    <h1 class="display-2 p-2">Admin sida</h1>
+    <h4 class="display-6 p-2">Lista på användare:</h4>
+    <!-- <ul th:each="user:${users}"> -->
+    <ul>
+        <!-- <li class="id" th:text="'Användarnamn: ' + '' + ${user.getUsername()}"></li> -->
+        <li> Namn: Benny <a th:href="@{/userhome}" class="btn btn-success text-light m-2">Titta på användare</a>
+            <button class="btn btn-danger text-light m-2">Ta bort användare</button></li>
+    </ul>
 </div>
 
 </body>

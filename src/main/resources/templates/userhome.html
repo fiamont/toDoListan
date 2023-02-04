@@ -8,10 +8,38 @@
 <body>
 
 <div layout:fragment="content">
-    <p>
-        Skriv nånting här
-    </p>
-</div>
-
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex flex-row">
+            <button class="btn btn-success btn-square-sm m-1" ></button>
+            <p>= Stryck över</p>
+            <button class="btn btn-warning btn-square-sm m-1"></button>
+            <p>= Ändra</p>
+            <button class="btn btn-danger btn-square-sm m-1"></button>
+            <p>= Ta bort</p>
+        </div>
+        <a th:href="@{/logout}" class="btn btn-danger text-light m-2">Logga ut</a>
+    </div>
+    <div class="d-flex justify-content-center align-items-center p-3">
+        <h1 class="userrubrik">Välkommen [användare]</h1>
+        <img th:src="@{/static/pennapapper.png}" alt="404 image not found" id="userhembild">
+    </div>
+    <div class="d-flex justify-content-center">
+        <ul>
+            <li>Tvätta <button class="btn btn-success btn-square-sm m-1" ></button><button class="btn btn-warning btn-square-sm m-1"></button><button class="btn btn-danger btn-square-sm m-1"></button>
+            </li>
+            <li>Handla mat <button class="btn btn-success btn-square-sm m-1" ></button><button class="btn btn-warning btn-square-sm m-1"></button><button class="btn btn-danger btn-square-sm m-1"></button>
+            </li>
+        </ul>
+    </div>
+    <div class="d-flex justify-content-center">
+        <form class="d-flex justify-content-center align-items-center" style="max-width: 500px">
+            <div>
+                <input type="text" class="form-control" id="additem" placeholder="Lägg till i listan..." name="additem">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-info">Lägg till!</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

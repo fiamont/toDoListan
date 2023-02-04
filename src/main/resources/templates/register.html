@@ -8,15 +8,25 @@
 <body>
 
 <div layout:fragment="content">
-    <div class="p-2">
-        <form th:action="@{/register}" th:object="${userModel}" method="post">
+    <div class="d-flex justify-content-center">
+        <!-- <form th:action="@{/register}" th:object="${userModel}" method="post"> -->
+        <form style="width: 300px">
             <div class="mb-3 mt-3">
                 <label for="username" class="form-label">Användarnamn:</label>
-                <input th:field="*{username}" type="text" class="form-control" id="username" placeholder="Skriv användarnamn" name="username">
+                <!-- <input th:field="*{username}" type="text" class="form-control" id="username" placeholder="Skriv användarnamn" name="username"> -->
+                <input type="text" class="form-control" id="username" placeholder="Skriv användarnamn" name="username">
             </div>
             <div class="mb-3">
                 <label for="pwd" class="form-label">Lösenord:</label>
-                <input th:field="*{password}" type="password" class="form-control" id="pwd" placeholder="Fyll i lösenord" name="pswd">
+                <!-- <input th:field="*{password}" type="password" class="form-control" id="pwd" placeholder="Fyll i lösenord" name="pswd"> -->
+                <input type="password" class="form-control" id="pwd" placeholder="Fyll i lösenord" name="pswd">
+            </div>
+            <div class="mb-3">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Vem är du?</option>
+                    <option value="user">Användare</option>
+                    <option value="admin">Admin</option>
+                </select>
             </div>
             <div class="form-check mb-3">
                 <label class="form-check-label">
