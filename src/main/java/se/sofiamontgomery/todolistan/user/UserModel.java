@@ -25,7 +25,7 @@ public class UserModel implements UserDetails {
     @Size(max = 20)
     private String username;
     @NotEmpty
-    @Size(min = 6, max = 20)
+    @Size(min = 6, max = 200)
     private String password;
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<SimpleGrantedAuthority> authorities;
@@ -33,8 +33,6 @@ public class UserModel implements UserDetails {
     private boolean isAccountNonLocked;
     private boolean isCredentialsNonExpired;
     private boolean isEnabled;
-    //private List<ListObjectModel> listObjectModelList;
-
 
     public UserModel(String username, String password, Set<SimpleGrantedAuthority> authorities, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isEnabled) {
         this.username = username;

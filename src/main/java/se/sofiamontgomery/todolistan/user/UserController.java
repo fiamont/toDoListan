@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import se.sofiamontgomery.todolistan.auth.AppRoles;
 import se.sofiamontgomery.todolistan.config.AppPasswordConfig;
@@ -21,7 +20,6 @@ public class UserController {
         this.userRepository = userRepository;
         this.appPasswordConfig = appPasswordConfig;
     }
-
 
     @GetMapping("/register")
     public String displayRegisterUser(UserModel userModel) {
