@@ -31,15 +31,17 @@ public class AppSecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests( requests -> {
                         requests
-                                .requestMatchers("/", "/error", "/static/**", "/about","/register").permitAll()
+                                .requestMatchers("/", "/error", "/static/**", "/login", "/logout", "/about","/register").permitAll()
                                 .requestMatchers("/admin").hasRole("ADMIN")
                                 .anyRequest()
                                 .authenticated();
                         }
 
                 )
-                .formLogin()
-                .and()
+                .formLogin( login -> {
+                            login.loginPage("/login");
+                        }
+                )
                 .authenticationProvider(authenticationOverride());
 
         return http.build();

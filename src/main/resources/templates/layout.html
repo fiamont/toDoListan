@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/static/style.css}" rel="stylesheet"/>
@@ -28,8 +32,11 @@
                             <a class="nav-link text-secondary" th:href="@{/admin}">Admin</a>
                         </li>
                     </ul>
-                    <div class="d-flex">
+                    <div sec:authorize="isAnonymous()"  class="d-flex">
                         <a th:href="@{/login}" class="btn btn-primary" type="button">Logga in</a>
+                    </div>
+                    <div sec:authorize="isAuthenticated()"  class="d-flex">
+                        <a th:href="@{/logout}" class="btn btn-danger" type="button">Logga ut</a>
                     </div>
                 </div>
             </div>
@@ -40,7 +47,7 @@
         <p>Changing content</p>
     </div>
     <div class="myfooter">
-
+        <p class="d-flex justify-content-center">Copyright Sofia Montgomery</p>
     </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout">
 <head>
@@ -13,8 +14,10 @@
     <!-- <ul th:each="user:${users}"> -->
     <ul>
         <!-- <li class="id" th:text="'Användarnamn: ' + '' + ${user.getUsername()}"></li> -->
-        <li> Namn: Benny <a th:href="@{/userhome}" class="btn btn-success text-light m-2">Titta på användare</a>
-            <button class="btn btn-danger text-light m-2">Ta bort användare</button></li>
+        <li> Namn: Benny
+            <a th:href="@{/admin}" class="btn btn-secondary text-light m-2">Titta på användare</a>
+            <button class="btn btn-danger text-light m-2">Ta bort användare</button>
+        </li>
     </ul>
 </div>
 

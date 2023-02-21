@@ -1,16 +1,21 @@
 .defaultBackground {
     /* background: rgba(255, 205, 178, 0.74); */
+    background: #d3e8fc;
 }
 
 #hembild, .ombild, #navbild {
     width: 230px;
 }
 
+#loginbild {
+    width: 70px;
+}
+
 #userhembild {
     width: 60px;
 }
 
-.hemtop {
+.hemtop, .logintop {
     background-image: url("pencils.png");
     background-repeat: no-repeat;
     background-position: left top;
@@ -24,9 +29,13 @@
     background-size: 200px;
 }
 
-#hemrubrik, #hemunderrubrik, #omrubrik {
+#hemrubrik, #hemunderrubrik, #omrubrik, #loggainrubrik {
     padding-top: 3rem;
     font-family: 'Shadows Into Light', cursive;
+}
+
+#loggainrubrik {
+    padding-bottom: 4rem;
 }
 
 #hemunderrubrik {
