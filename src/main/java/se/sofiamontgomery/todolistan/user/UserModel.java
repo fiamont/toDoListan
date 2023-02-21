@@ -4,8 +4,6 @@ package se.sofiamontgomery.todolistan.user;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,8 +13,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
-@Getter
-@NoArgsConstructor
 public class UserModel implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,34 +40,11 @@ public class UserModel implements UserDetails {
         this.isEnabled = isEnabled;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public UserModel() {}
 
-    public void setPassword(String password) {
-        this.password = password;
+    public Long getUserid() {
+        return userid;
     }
-
-    public void setAuthorities(Set<SimpleGrantedAuthority> authorities) {
-        this.authorities = authorities;
-    }
-
-    public void setAccountNonExpired(boolean accountNonExpired) {
-        isAccountNonExpired = accountNonExpired;
-    }
-
-    public void setAccountNonLocked(boolean accountNonLocked) {
-        isAccountNonLocked = accountNonLocked;
-    }
-
-    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-        isCredentialsNonExpired = credentialsNonExpired;
-    }
-
-    public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
@@ -105,5 +78,33 @@ public class UserModel implements UserDetails {
     @Override
     public boolean isEnabled() {
         return isEnabled;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setAuthorities(Set<SimpleGrantedAuthority> authorities) {
+        this.authorities = authorities;
+    }
+
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        isAccountNonExpired = accountNonExpired;
+    }
+
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        isAccountNonLocked = accountNonLocked;
+    }
+
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+        isCredentialsNonExpired = credentialsNonExpired;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
     }
 }
