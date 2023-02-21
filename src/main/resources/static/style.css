@@ -50,3 +50,7 @@
     width: 20px;
     height: 20px;
 }
+
+.error {
+    color: red;
+}

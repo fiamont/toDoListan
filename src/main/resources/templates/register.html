@@ -13,10 +13,12 @@
                 <div class="mb-3 mt-3">
                     <label class="form-label">Användarnamn:</label>
                     <input type="text" class="form-control" th:field="*{username}" name="username" placeholder="Skriv användarnamn">
+                    <p th:if="${#fields.hasErrors('username')}" th:class="${#fields.hasErrors('username')}? error" >Får max vara 20 tecken</p>
                 </div>
                 <div class="mb-3">
                     <label for="pwd" class="form-label">Lösenord (mellan 8 och 20 tecken):</label>
                     <input type="password" th:field="*{password}" name="password" class="form-control" id="pwd" placeholder="Fyll i lösenord">
+                    <p th:if="${#fields.hasErrors('password')}" th:class="${#fields.hasErrors('password')}? error" >Måste vara minst 6 tecken</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Vem är du?</label>

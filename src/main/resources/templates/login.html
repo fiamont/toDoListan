@@ -16,10 +16,12 @@
                     <div class="mb-3 mt-3">
                         <label class="form-label">Användarnamn:</label>
                         <input name="username" type="text" required autofocus class="form-control" placeholder="Skriv användarnamn">
+                        <p th:if="${param.error}" th:class="error" >Får max vara 20 tecken</p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Lösenord:</label>
                         <input name="password" placeholder="Fyll i lösenord" type="password" required autofocus class="form-control">
+                        <p th:if="${param.error}" th:class="error" >Måste vara minst 6 tecken</p>
                     </div>
                     <div>
                         <input type="submit" value="Logga in" class="btn btn-primary">
