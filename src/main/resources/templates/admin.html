@@ -8,18 +8,20 @@
 </head>
 <body>
 
-<div layout:fragment="content">
-    <h1 class="display-2 p-2">Admin sida</h1>
-    <h4 class="display-6 p-2">Lista på användare:</h4>
-    <!-- <ul th:each="user:${users}"> -->
-    <ul>
-        <!-- <li class="id" th:text="'Användarnamn: ' + '' + ${user.getUsername()}"></li> -->
-        <li> Namn: Benny
-            <a th:href="@{/admin}" class="btn btn-secondary text-light m-2">Titta på användare</a>
+    <div layout:fragment="content">
+        <div class="d-flex flex-row justify-content-between align-items-center">
+            <h1 class="display-4 p-2">Välkommen till adminsidan</h1>
+            <div class="d-flex flex-column justify-content-center align-items-center m-2">
+                <p class="text-primary fw-bold">Inloggad som: </p>
+                <p>[adminnamn]</p>
+            </div>
+        </div>
+        <h4 class="display-6 p-2">Lista på användare:</h4>
+        <ul class="d-flex flex-row align-items-center" th:each="user:${user}">
+            <li class="id" th:text="'Namn: ' + '' + ${user.getUsername()}"></li>
             <button class="btn btn-danger text-light m-2">Ta bort användare</button>
-        </li>
-    </ul>
-</div>
+        </ul>
+    </div>
 
 </body>
 </html>

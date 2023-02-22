@@ -9,18 +9,22 @@
 <body>
 
 <div layout:fragment="content">
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-between align-items-start">
         <div class="d-flex flex-row">
-            <button class="btn btn-success btn-square-sm m-1" ></button>
-            <p>= Stryck över</p>
-            <button class="btn btn-warning btn-square-sm m-1"></button>
+            <div class="bg-success m-1" id="green" ></div>
+            <p>= Färdigt (Stryck över)</p>
+            <div class="bg-warning m-1" id="yellow"></div>
             <p>= Ändra</p>
-            <button class="btn btn-danger btn-square-sm m-1"></button>
+            <div class="bg-danger m-1" id="red"></div>
             <p>= Ta bort</p>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center m-2">
+            <p class="text-primary fw-bold">Inloggad som: </p>
+            <p>[användarnamn]</p>
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center p-3">
-        <h1 class="userrubrik">Välkommen [användare]</h1>
+        <h1 class="userrubrik">Välkommen till Min sida!</h1>
         <img th:src="@{/static/pennapapper.png}" alt="404 image not found" id="userhembild">
     </div>
     <div class="d-flex justify-content-center">
@@ -41,5 +45,6 @@
             </div>
         </form>
     </div>
+</div>
 </body>
 </html>
