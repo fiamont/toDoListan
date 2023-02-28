@@ -23,7 +23,7 @@ public class AppViewConfig implements WebMvcConfigurer {
         registry.addViewController("/logout").setViewName("logout");
         registry.addViewController("/admin").setViewName("admin");
         registry.addViewController("/about").setViewName("about");
-        registry.addViewController("/userhome").setViewName("userhome");
+        //registry.addViewController("/userhome").setViewName("userhome");
         registry.addViewController("/error").setViewName("error");
     }
 

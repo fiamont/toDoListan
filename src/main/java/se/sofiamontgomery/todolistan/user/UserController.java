@@ -43,7 +43,7 @@ public class UserController {
     //gör så man kan ta bort en användare på admin
 
     @GetMapping("/admin")
-    public ModelAndView displayUserHome(UserModel userModel) {
+    public ModelAndView displayAdminPage(UserModel userModel) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("admin");
         modelAndView.addObject("user", userRepository.findAll());

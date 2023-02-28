@@ -24,6 +24,12 @@
                         <p th:if="${param.error}" th:class="error" >Måste vara minst 6 tecken</p>
                     </div>
                     <div>
+                        <p>
+                            <input type="checkbox" name="remember-me"
+                            />&nbsp;Kom ihåg mig
+                        </p>
+                    </div>
+                    <div>
                         <input type="submit" value="Logga in" class="btn btn-primary">
                         <div class="d-flex justify-content-end">
                             <img th:src="@{/static/pergament.png}" alt="404 image not found" id="loginbild">

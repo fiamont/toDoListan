@@ -12,15 +12,15 @@
     <div class="d-flex justify-content-between align-items-start">
         <div class="d-flex flex-row">
             <div class="bg-success m-1" id="green" ></div>
-            <p>= Färdigt (Stryck över)</p>
+            <p>= Färdigt</p>
             <div class="bg-warning m-1" id="yellow"></div>
             <p>= Ändra</p>
             <div class="bg-danger m-1" id="red"></div>
             <p>= Ta bort</p>
         </div>
-        <div class="d-flex flex-column justify-content-center align-items-center m-2">
+        <div th:object="${user}" class="d-flex flex-column justify-content-center align-items-center m-2">
             <p class="text-primary fw-bold">Inloggad som: </p>
-            <p>[användarnamn]</p>
+            <p th:field="*{username}"></p>
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center p-3">
@@ -28,22 +28,20 @@
         <img th:src="@{/static/pennapapper.png}" alt="404 image not found" id="userhembild">
     </div>
     <div class="d-flex justify-content-center">
-        <ul>
-            <li>Tvätta <button class="btn btn-success btn-square-sm m-1" ></button><button class="btn btn-warning btn-square-sm m-1"></button><button class="btn btn-danger btn-square-sm m-1"></button>
-            </li>
-            <li>Handla mat <button class="btn btn-success btn-square-sm m-1" ></button><button class="btn btn-warning btn-square-sm m-1"></button><button class="btn btn-danger btn-square-sm m-1"></button>
-            </li>
-        </ul>
-    </div>
-    <div class="d-flex justify-content-center">
-        <form class="d-flex justify-content-center align-items-center" style="max-width: 500px">
+        <form th:action="@{/userhome}" method="POST" th:object="${listitem}" class="d-flex justify-content-center align-items-center" style="max-width: 500px">
             <div>
-                <input type="text" class="form-control" id="additem" placeholder="Lägg till i listan..." name="additem">
+                <input th:field="*{listItemName}" type="text" class="form-control" id="additem" placeholder="Lägg till i listan..." name="additem">
             </div>
             <div>
                 <button type="submit" class="btn btn-info">Lägg till!</button>
             </div>
         </form>
+    </div>
+    <div class="d-flex justify-content-center">
+        <ul th:each="listItemModel:${listitem}" >
+            <li th:text="${listitem.getListItemName()}" ></li>
+            <button class="btn btn-success btn-square-sm m-1" ></button><button class="btn btn-warning btn-square-sm m-1"></button><button class="btn btn-danger btn-square-sm m-1"></button>
+        </ul>
     </div>
 </div>
 </body>

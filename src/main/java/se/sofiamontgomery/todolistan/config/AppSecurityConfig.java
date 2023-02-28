@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.SecurityFilterChain;
 import se.sofiamontgomery.todolistan.user.UserService;
 
+import java.util.concurrent.TimeUnit;
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -42,6 +44,20 @@ public class AppSecurityConfig {
                             login.loginPage("/login");
                         }
                 )
+                .rememberMe( rememberMe -> {
+                        rememberMe
+                                .rememberMeParameter("remember-me")
+                                .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21))
+                                .key("SomeSecureKey")
+                                .userDetailsService(userService);
+                        }
+                )
+                .logout( logout -> {
+                    logout
+                            .clearAuthentication(true)
+                            .invalidateHttpSession(true)
+                            .deleteCookies("remember-me", "JSESSIONID");
+                })
                 .authenticationProvider(authenticationOverride());
 
         return http.build();
