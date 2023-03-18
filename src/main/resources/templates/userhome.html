@@ -29,17 +29,18 @@
         <img th:src="@{/static/pennapapper.png}" alt="404 image not found" id="userhembild">
     </div>
     <div class="d-flex justify-content-center">
-        <form th:action="@{/userhome}" method="POST" th:object="${item}" class="d-flex justify-content-center align-items-center" style="max-width: 500px">
+        <form th:action="@{/userhome}" method="POST" th:object="${listItemModel}" class="d-flex justify-content-center align-items-center" style="max-width: 500px">
             <div>
-                <!-- <input th:field="*{listitemname}" type="text" class="form-control" id="additem" placeholder="Lägg till i listan..." name="additem">
-            -->
+                <input th:field="*{listItemName}" type="text" class="form-control" id="additem" placeholder="Lägg till i listan..." name="additem">
+                <p th:if="${#fields.hasErrors('listItemName')}" th:class="${#fields.hasErrors('listItemName')}? error" >Får inte vara tomt!</p>
+
             </div>
             <div>
                 <button type="submit" class="btn btn-info">Lägg till!</button>
             </div>
         </form>
     </div>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column justify-content-center align-items-center">
         <ul th:each="item:${item}" >
             <li th:text="${item.getListItemName()}" ></li>
             <button class="btn btn-success btn-square-sm m-1" ></button><button class="btn btn-warning btn-square-sm m-1"></button><button class="btn btn-danger btn-square-sm m-1"></button>

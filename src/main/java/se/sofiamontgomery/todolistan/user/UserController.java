@@ -2,9 +2,12 @@ package se.sofiamontgomery.todolistan.user;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import se.sofiamontgomery.todolistan.auth.AppRoles;
@@ -53,10 +56,10 @@ public class UserController {
     public ModelAndView displayAllUsers(UserModel userModel) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("admin");
-        modelAndView.addObject("users", userRepository.findAll());
+        modelAndView.addObject("users", userRepository.orderByUsername());
         return modelAndView;
     }
 
-    //TODO: OM JAG FÅR TID:
+    //TODO: OM JAG FÅR TID/KAN KLURA UT:
     // gör så man kan ta bort en användare på admin
 }

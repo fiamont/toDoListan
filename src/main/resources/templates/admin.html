@@ -20,7 +20,7 @@
         <h4 class="display-6 p-2">Lista på användare:</h4>
         <ul class="d-flex flex-row align-items-center" th:each="users:${users}">
             <li class="id" th:text="'Namn: ' + '' + ${users.getUsername()}"></li>
-            <button class="btn btn-danger text-light m-2">Ta bort användare</button>
+            <!-- <button class="btn btn-danger text-light m-2">Ta bort användare</button> -->
         </ul>
     </div>
 
