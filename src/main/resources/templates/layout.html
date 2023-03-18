@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="https://thymeleaf.org/thymeleaf-extras-springsecurity5"
 >
 <head>
     <meta charset="UTF-8">
@@ -28,8 +28,8 @@
                         <li class="nav-item">
                             <a class="nav-link text-info" th:href="@{/about}">Om ToDoListan</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-secondary" th:href="@{/admin}">Admin</a>
+                        <li sec:authorize="hasRole('ADMIN')" class="nav-item">
+                            <a class="nav-link text-primary" th:href="@{/admin}">Admin</a>
                         </li>
                     </ul>
                     <div sec:authorize="isAnonymous()"  class="d-flex">
@@ -47,7 +47,7 @@
         <p>Changing content</p>
     </div>
     <div class="myfooter">
-        <p class="d-flex justify-content-center">Copyright Sofia Montgomery</p>
+        <p class="d-flex justify-content-center">&copy Sofia Montgomery</p>
     </div>
 </body>
 </html>

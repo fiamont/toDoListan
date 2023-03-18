@@ -18,8 +18,10 @@ public class ListItemModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="listitemid")
     private Long listItemId;
     @NotEmpty
+    @Column(name = "listitemname")
     private String listItemName;
 
     private boolean done;

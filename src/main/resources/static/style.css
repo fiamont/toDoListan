@@ -1,6 +1,9 @@
 .defaultBackground {
-    /* background: rgba(255, 205, 178, 0.74); */
     background: #d3e8fc;
+}
+
+.myfooter {
+    padding-top: 3rem;
 }
 
 #hembild, .ombild, #navbild {
@@ -59,4 +62,16 @@
     width: 21px;
     height: 20px;
     border-radius: 5px;
+}
+
+#userinlogg, #admininlogg {
+    background: #d3e8fc;
+    border-radius: 5px;
+    border-style: ridge;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.loginas {
+    padding-right: 5px;
 }
