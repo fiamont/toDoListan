@@ -1,4 +1,4 @@
-package se.sofiamontgomery.todolistan.listobject;
+package se.sofiamontgomery.todolistan.post;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -9,20 +9,19 @@ import lombok.Setter;
 import se.sofiamontgomery.todolistan.user.UserModel;
 
 @Entity
-@Table(name = "listitems")
+@Table(name = "posts")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class ListItemModel {
+public class PostModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="listitemid")
-    private Long listItemId;
+    @Column(name = "postid")
+    private Long postId;
     @NotEmpty
-    @Column(name = "listitemname")
-    private String listItemName;
+    private String description;
 
     private boolean done;
 
@@ -30,8 +29,8 @@ public class ListItemModel {
     @JoinColumn(name = "userid", nullable = false)
     private UserModel userModel;
 
-    public ListItemModel(String listItemName, boolean done) {
-        this.listItemName = listItemName;
+    public PostModel(String description, boolean done) {
+        this.description = description;
         this.done = done;
     }
 }

@@ -1,4 +1,4 @@
-package se.sofiamontgomery.todolistan.listobject;
+package se.sofiamontgomery.todolistan.post;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
 import se.sofiamontgomery.todolistan.user.UserModel;
 
 @Controller
-public class ListItemController {
+public class PostController {
 
-    private final ListItemRepository listItemRepository;
+    private final PostRepository postRepository;
 
     @Autowired
-    public ListItemController(ListItemRepository listItemRepository) {
-        this.listItemRepository = listItemRepository;
+    public PostController(PostRepository postRepository) {
+        this.postRepository = postRepository;
     }
 
     /*TODO:
@@ -29,22 +29,22 @@ public class ListItemController {
      */
 
     @GetMapping("/userhome")
-    public ModelAndView getListItems(ListItemModel listItemModel, UserModel userModel) {
+    public ModelAndView getListItems(PostModel postModel, UserModel userModel) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("userhome");
-        modelAndView.addObject("item", listItemRepository.findAll());
+        modelAndView.addObject("post", postRepository.findAll());
         return modelAndView;
     }
 
 
     @PostMapping("/userhome")
-    public String addListItem(@Valid ListItemModel listItemModel, BindingResult result, UserModel userModel) {
+    public String addListItem(@Valid PostModel postModel, BindingResult result, UserModel userModel) {
         if(result.hasErrors()){
             return "userhome";
         }
-        listItemModel.setDone(false);
-        listItemModel.setUserModel(userModel);
-        listItemRepository.save(listItemModel);
+        postModel.setDone(false);
+        postModel.setUserModel(userModel);
+        postRepository.save(postModel);
         return "userhome";
     }
 }
