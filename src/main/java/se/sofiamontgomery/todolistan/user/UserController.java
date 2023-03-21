@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import se.sofiamontgomery.todolistan.config.AppPasswordConfig;
 
@@ -38,6 +39,9 @@ public class UserController {
         return userService.showAllUsers(userModel);
     }
 
-    //TODO: OM JAG FÅR TID/KAN KLURA UT:
-    // gör så man kan ta bort en användare på admin
+    @GetMapping("/deleteUser")
+    public String deleteUser(@RequestParam Long userId) {
+        userRepository.deleteById(userId);
+        return "redirect:/admin";
+    }
 }
