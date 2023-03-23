@@ -20,7 +20,10 @@
         <h4 class="display-6 p-2">Lista på användare:</h4>
         <ul class="d-flex flex-row align-items-center" th:each="users:${users}">
             <li class="id" th:text="'Namn: ' + '' + ${users.getUsername()}"></li>
-            <a  th:href="@{/deleteUser(userid=${users.getUserid})}" class="btn btn-danger text-light m-2">Ta bort användare</a>
+            <form th:action="@{/delete/{userid}(userid=${userModel.getUserid})}" th:object="${userModel}" th:method="post">
+                <input name="_method" type="hidden" value="DELETE" />
+                <button th:field="${userModel}" class="btn btn-danger text-light m-2" type="submit" onClick="return confirm('Vill du ta bort den här användaren?')">Ta bort användare</button>
+            </form>
         </ul>
     </div>
 

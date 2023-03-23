@@ -40,11 +40,19 @@
             </div>
         </form>
     </div>
-    <div class="d-flex flex-column justify-content-center align-items-center">
-        <ul th:each="post:${post}" >
-            <li th:text="${post.getDescription()}" ></li>
-            <button class="btn btn-success btn-square-sm m-1" ></button><button class="btn btn-warning btn-square-sm m-1"></button><button class="btn btn-danger btn-square-sm m-1"></button>
-        </ul>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="d-flex justify-content-center align-items-center p-2 todolistan">
+            <table class="table table-hover">
+                <tbody>
+                <tr th:each="post:${post}">
+                    <td th:text="${post.getDescription()}"></td>
+                    <td>
+                        <button class="btn btn-success btn-square-sm m-1" ></button><button class="btn btn-warning btn-square-sm m-1"></button><button class="btn btn-danger btn-square-sm m-1"></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 </body>
