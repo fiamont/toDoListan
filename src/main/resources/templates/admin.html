@@ -18,14 +18,27 @@
             </div>
         </div>
         <h4 class="display-6 p-2">Lista på användare:</h4>
-        <ul class="d-flex flex-row align-items-center" th:each="users:${users}">
-            <li class="id" th:text="'Namn: ' + '' + ${users.getUsername()}"></li>
-            <form th:action="@{/delete/{userid}(userid=${userModel.getUserid})}" th:object="${userModel}" th:method="post">
-                <input name="_method" type="hidden" value="DELETE" />
-                <button th:field="${userModel}" class="btn btn-danger text-light m-2" type="submit" onClick="return confirm('Vill du ta bort den här användaren?')">Ta bort användare</button>
-            </form>
-        </ul>
+        <div class="p-3">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Namn</th>
+                        <th scope="col">Åtgärd</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="users:${users}">
+                    <td th:text="${users.getUsername()}"></td>
+                    <td>
+                        <form th:action="@{/delete/{userid}(userid=${userModel.getUserid})}" th:object="${userModel}" th:method="post">
+                            <input name="_method" type="hidden" value="DELETE" />
+                            <button th:field="${userModel}" class="btn btn-danger text-light m-2" type="submit" onClick="return confirm('Vill du verkligen ta bort den här användaren?')">Ta bort användare</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
 </body>
 </html>
